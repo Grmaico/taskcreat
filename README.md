@@ -1,4 +1,4 @@
-NPM start no termina
+NPM start no terminal
 
 
 Open with live server em Index.html 
