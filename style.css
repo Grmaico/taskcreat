@@ -3,6 +3,7 @@
     --gray: #e0e0e0;
     --light-gray: #f3f3f3;
     --white: #ffffff;
+    --black: #0e0d0d; 
   }
   
   * {
@@ -16,7 +17,9 @@
     place-items: center;
     min-height: 100vh;
     font-family: "Inter", sans-serif;
-    background: var(--gray);
+    background: url("./assets/taskphoto.jpg") no-repeat center / cover;
+    background-position: center;
+    background-size: cover; 
     padding-inline: 16px;
   }
   
@@ -26,13 +29,18 @@
   }
   
   .todo {
-    background: var(--white);
-    border-radius: 16px;
-    width: 100%;
-    max-width: 396px;
-    min-height: 640px;
-    padding: 40px 20px 20px;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border-left: 4px solid #4CAF50; 
+    border-radius: 6px;
+    padding: 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    cursor: grab;
+    transition: all 1s;
+        animation: fadeIn 0.3s ease-out;
+
+
   }
   
   .todo-title {
@@ -41,11 +49,13 @@
     padding-bottom: 20px;
     border-bottom: 1px solid var(--light-gray);
     margin-bottom: 20px;
+
   }
   
   .todo-actions {
     display: flex;
     justify-content: space-between;
+    
   }
   
   .create-button {
@@ -59,10 +69,14 @@
     line-height: 0;
     transition: 0.3s;
     transition-timing-function: cubic-bezier(0.2, 1, 0.2, 1.4);
+    animation: fadeIn 0.3s ease-out;
+    transition: all 0.8s;
+
+
   }
   
   .create-button:hover {
-    transform: scale(1.1);
+    transform: scale(2);
   }
   
   .todo-list {
@@ -70,6 +84,7 @@
     margin-top: 12px;
     max-height: 444px;
     overflow: auto;
+    
   }
   
   .task {
@@ -79,6 +94,10 @@
     display: flex;
     align-items: center;
     gap: 8px;
+    animation: fadeIn 0.3s ease-out;
+    transition: all 0.8s;
+
+
   }
   
   .task + .task {
@@ -102,6 +121,9 @@
     background-image: url("./assets/trash.svg");
     background-repeat: no-repeat;
     background-position: center;
+    animation: fadeIn 0.3s ease-out;
+
+    
   }
   
   @media (max-width: 400px) {
@@ -117,4 +139,9 @@
       font-size: 14px;
     }
   }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
   
